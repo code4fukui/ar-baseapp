@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:">
+<title>AR baseapp</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="info">
+AR baseapp forked <a href=https://code4fukui.github.io/three.js_examples/?q=webxr#webxr_ar_dragging>ar - dragging</a> / <a href="https://threejs.org">three.js</a><br>
+</div>
+
+<!-- Import maps polyfill -->
+<!-- Remove this when import maps will be widely supported -->
+<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+<script type="importmap">
+{
+	"imports": {
+		"three": "https://code4fukui.github.io/three.js/build/three.module.js",
+		"three/addons/": "https://code4fukui.github.io/three.js/examples/jsm/"
+	}
+}
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js"; // for PC
+import { ARButton } from "three/addons/webxr/ARButton.js";
+
+const init = () => {
+	const container = document.createElement("div");
+	document.body.appendChild(container);
+
+	const scene = new THREE.Scene();
+
+	const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 10);
+	camera.position.set(0, 0, 3);
+
+	const controls = new OrbitControls(camera, container);
+	controls.minDistance = 0;
+	controls.maxDistance = 8;
+
+	scene.add(new THREE.HemisphereLight(0x808080, 0x606060));
+
+	const light = new THREE.DirectionalLight(0xffffff);
+	light.position.set(0, 6, 0);
+	scene.add(light);
+
+	const group = new THREE.Group();
+	scene.add(group);
+
+	// geometry
+	const geometry = new THREE.BoxGeometry(1.6, 0.8, 0.1);
+	const color = "#ff0000";
+	const opacity = 1.0;
+	const material = new THREE.MeshStandardMaterial({
+		color,
+		roughness: 1.0,
+		metalness: 0.0,
+		transparent: opacity < 1.0,
+		opacity,
+	});
+
+	const object = new THREE.Mesh(geometry, material);
+	group.add(object);
+
+	const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+	renderer.setPixelRatio(devicePixelRatio);
+	renderer.setSize(innerWidth, innerHeight);
+	renderer.outputEncoding = THREE.sRGBEncoding;
+	renderer.xr.enabled = true;
+	container.appendChild(renderer.domElement);
+
+	document.body.appendChild(ARButton.createButton(renderer));
+
+	addEventListener("resize", () => {
+		camera.aspect = innerWidth / innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize(innerWidth, innerHeight);
+	});
+	renderer.setAnimationLoop(() => {
+		renderer.render(scene, camera);
+	});
+};
+
+init();
+</script>
+</body>
+</html>
