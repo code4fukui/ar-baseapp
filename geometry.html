@@ -8,13 +8,6 @@
 AR geometry - an example of <a href=https://github.com/code4fukui/ar-baseapp/>AR baseapp</a>
 </div>
 
-<style>
-</style>
-
-<!-- Import maps polyfill -->
-<!-- Remove this when import maps will be widely supported -->
-<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-
 <script type="importmap">
 {
 	"imports": {
@@ -26,7 +19,8 @@ AR geometry - an example of <a href=https://github.com/code4fukui/ar-baseapp/>AR
 
 <script type="module">
 import * as THREE from "three";
-import { initAR } from "./initAR.js";
+//import { initAR } from "./initAR.js";
+import { initAR } from "https://code4fukui.github.io/ar-baseapp/initAR.js";
 
 const scene = initAR();
 
