@@ -1,4 +1,7 @@
 # ar-baseapp
+
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 A base application for creating AR (Augmented Reality) experiences using Three.js and WebXR.
 
 ## Demo

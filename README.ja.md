@@ -1,6 +1,6 @@
 # ar-baseapp
 
-AR baseappは、Three.jsを使ったWebベースのAR(拡張現実)アプリケーションの簡単なベースアプリケーションです。
+ar-baseappは、Three.jsを使ったWebベースのAR(拡張現実)アプリケーションの簡単なベースアプリケーションです。
 
 ## デモ
 https://code4fukui.github.io/ar-baseapp/
