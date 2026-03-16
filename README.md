@@ -25,4 +25,4 @@ To use the `ar-baseapp` project:
 4. Interact with the AR scene by moving your device around.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+MIT License — see [LICENSE](LICENSE).

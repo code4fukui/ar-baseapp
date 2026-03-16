@@ -1,22 +1,17 @@
 # ar-baseapp
 
-ar-baseappは、Three.jsを使ったWebベースのAR(拡張現実)アプリケーションの簡単なベースアプリケーションです。
-
-## デモ
-https://code4fukui.github.io/ar-baseapp/
+ar-baseappは、Three.jsを使ったWebベースのAR(拡張現実)アプリケーションのためのベースアプリケーションです。
 
 ## 機能
 - Three.jsを使ったシーンの描画
 - WebXRを使ったARモードでの表示
-- オブジェクトの配置
+- 3Dオブジェクトの配置
 
 ## 必要環境
-- WebブラウザでWebXRがサポートされている必要があります。
+- WebXRがサポートされているWebブラウザが必要です。
 
 ## 使い方
-index.htmlをWebサーバーで開くと、ARモードで実行できます。
-
-geometry.htmlは、シーン内に簡単なBox形状のオブジェクトを追加するサンプルです。
+`geometry.html`をWebサーバーで開くと、ARモードで実行できます。
 
 ## ライセンス
 MIT License
